@@ -1,0 +1,80 @@
+.themelist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 98px;
+  font-size:26px;
+  font-family:MicrosoftYaHei;
+  color:rgba(1,1,1,1);
+}
+.themelist span {
+  cursor: pointer;
+}
+.themelist span:hover {
+  color: #94002C;
+}
+.photolist {
+  height: 800px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap:wrap;
+  overflow: scroll;
+}
+.photolist > div {
+  width: 474px;
+  height: 250px;
+  position: relative;
+  cursor: pointer;
+}
+
+.photolist img{
+  position: absolute;
+  width: 474px;
+  height: 250px;
+}
+.photoInfo {
+  position: absolute;
+  width: 474px;
+  height: 250px;
+  background-color: black;
+  opacity: 0.5;
+  font-size:26px;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.photoInfoname {
+  width: 400px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.rehome {
+  height:60px;
+  background:rgba(255,255,255,1);
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(111,111,111,1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 98px;
+}
+.rehome img {
+  width:16px;
+  height:16px;
+  margin-right: 12px;
+}
+.rehome a{
+  color: #6F6F6F;
+}
+.rehome span {
+  margin-left:12px; 
+}
