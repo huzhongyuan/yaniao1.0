@@ -153,6 +153,8 @@ let ajax = (url, des, num) => {
         designIndex(res); //设计领域首页
       } else if(des == 'news') {
         loadnews(res);
+      } else if(des == 'loadSiteInfo') {
+        loadSiteInfo(res);
       }
     },
     error: function (res) {
