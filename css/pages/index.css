@@ -35,6 +35,7 @@
   flex-direction: column;
   margin: 40px 63px;
   width: 495px;
+  cursor: pointer;
 }
 .newstitle {
   width: 495px;
@@ -89,6 +90,7 @@
   width:221px;
   height:379px;
   background:rgba(0,0,0,1);
+  cursor: pointer;
 }
 .themeimg img{
   position: absolute;
