@@ -15,6 +15,12 @@
   height:16px;
   margin-right: 12px;
 }
+.teamlistphoto.text-truncate img{
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
 .rehome a{
   color: #6F6F6F;
 }
@@ -77,6 +83,7 @@
   font-family:MicrosoftYaHei;
   color:rgba(76,76,76,1);
   line-height:26px;
+  margin-bottom: 2rem;
 }
 .headertime {
   margin-top: 73px;
