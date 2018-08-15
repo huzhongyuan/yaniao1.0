@@ -1,0 +1,117 @@
+.themelist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 98px;
+  font-size:26px;
+  font-family:MicrosoftYaHei;
+  color:rgba(1,1,1,1);
+}
+.themelist span {
+  cursor: pointer;
+}
+.themelist span:hover {
+  color: #94002C;
+}
+
+.rehome {
+  height:60px;
+  background:rgba(255,255,255,1);
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(111,111,111,1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 98px;
+}
+.rehome img {
+  width:16px;
+  height:16px;
+}
+.rehome a{
+  color: #6F6F6F;
+  margin-left: 12px;
+}
+.rehome span {
+  margin-left:12px; 
+}
+.servecon {
+  width: 1200px;
+  margin: 0px auto;
+  margin-bottom: 66px;
+}
+.serverbg img {
+  width: 1200px;
+  height: 490px;
+}
+.serverbg {
+  margin-bottom: 60px;
+}
+.servesign > div {
+  margin: 7px;
+}
+.servesigntitle {
+  font-size:20px;
+font-family:MicrosoftYaHeiLight;
+color:rgba(0,0,0,1);
+}
+.servesignname {
+  font-size:16px;
+font-family:MicrosoftYaHeiLight;
+color:rgba(0,0,0,1);
+}
+
+.servesigncon {
+  font-size:16px;
+  font-family:MicrosoftYaHeiLight;
+  color:rgba(0,0,0,1);
+}
+
+.teamphoto {
+  width: 1200px;
+  margin: 0px auto;
+  margin-bottom: 112px;
+}
+
+.teamphotofirst {
+  width: 1200px;
+  height: 490px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+.teamphotofirst {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.teamphotofirst img{
+  display: flex;
+  width: 300px;
+  height: 490px;
+  margin: 0px;
+  padding: 0px;
+}
+.teamphotosecond {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 1200px;
+  height: 490px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+.teamphotosecond img {
+  display: flex;
+  width:150px;
+  height:260px;
+}
+.yaniaosign {
+  margin-top: 55px;
+  font-size:16px;
+font-family:MicrosoftYaHeiLight;
+color:rgba(0,0,0,1);
+}

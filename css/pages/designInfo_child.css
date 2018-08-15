@@ -1,0 +1,147 @@
+
+.rehome {
+  height:60px;
+  background:rgba(255,255,255,1);
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(111,111,111,1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.rehome img {
+  width:16px;
+  height:16px;
+  margin-right: 12px;
+}
+.rehome a{
+  color: #6F6F6F;
+}
+.rehome span {
+  margin-left:12px; 
+}
+
+.content {
+  width: 1200px;
+}
+.content {
+  width: 1200px;
+  margin: 0px auto;
+}
+.largeimage {
+  width: 674px;
+  height: 525px;
+}
+.minimages {
+  width: 102px;
+  height: 102px;
+}
+.imagesList {
+  display: flex;
+  width:574px;
+}
+.contentheader {
+  display: flex;
+  flex-direction: row;
+}
+.headerdesc {
+  display: flex;
+  flex-direction: column;
+}
+.headertitile {
+  font-size:24px;
+  font-family:MicrosoftYaHeiLight;
+  color:rgba(77,77,77,1);
+  line-height:26px;
+  width:575px; 
+}
+.headercontetnt {
+  margin-top: 21px;
+  font-size:18px;
+  font-family:MicrosoftYaHeiLight;
+  color:rgba(152,152,152,1);
+  line-height:26px;
+  width: 575px;
+}
+.headerstyle {
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(94,115,135,1);
+  line-height:26px;
+  height: 22px;
+  margin-top: 58px;
+}
+.headertimetitle {
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(76,76,76,1);
+  line-height:26px;
+}
+.headertime {
+  margin-top: 73px;
+}
+.headerreport {
+  margin-top: 48px;
+}
+.xj {
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(76,76,76,1);
+  line-height:26px;
+}
+.xjtext {
+  font-size:18px;
+  font-family:MicrosoftYaHeiLight;
+  color:rgba(175,175,175,1);
+  line-height:26px;
+  margin-top: 21px;
+}
+.textInfoheader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(195,15,34,1);
+  line-height:0px;
+  padding-left: 50px;
+  height: 93px;
+}
+.textcontenttitle {
+  margin-top: 129px;
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(65,73,80,1);
+  line-height:0px;
+}
+.textcontentphoto {
+  margin-top: 60px;
+}
+.textcontentphoto img {
+  width: 983px;
+  height: 719px;
+}
+.item {
+  margin-top: 54px;
+}
+.item > div {
+  margin:6px;
+}
+.itemtitle {
+  font-size:14px;
+  font-family:MicrosoftYaHei-Bold;
+  color:rgba(0,0,0,1);
+}
+.itemdes {
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(0,0,0,1);
+}
+.designInfodes {
+  margin-top: 73px;
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(17,17,17,1);
+  margin-bottom: 191px;
+}

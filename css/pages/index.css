@@ -1,0 +1,114 @@
+#carouselExampleControls img{
+  height:768px;
+  /* widows: 2400px; */
+}
+.news {
+  height: 540px;
+  background:rgba(255,255,255,1);
+}
+.newstitlelist {
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.newstitlelist span {
+  font-size:24px;
+  font-family:MicrosoftYaHei;
+  color:rgba(0,0,0,1);
+  line-height:26px;
+  margin:0px 38px;
+  cursor: pointer;
+}
+.newstitlelist span:hover{
+  color: #94002C;
+}
+.newsInfoBox{
+  width: 1242px;
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.newsInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 63px;
+  width: 495px;
+  cursor: pointer;
+}
+.newstitle {
+  width: 495px;
+  height: 25px;
+  font-size:18px;
+  font-family:SourceHanSansCN-Light;
+  color:rgba(209,158,62,1);
+  line-height:26px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.newscontent {
+  width:495px;
+  height:50px;
+  font-size:16px;
+  font-family:SourceHanSansCN-Light;
+  color:rgba(137,137,137,1);
+  line-height:26px;
+  margin: 20px 0px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.newstime {
+  width:495px;
+  height:20px;
+  font-size:14px;
+  font-family:SourceHanSansCN-Light;
+  color:rgba(137,137,137,1);
+  line-height:26px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.theme {
+  margin-top: 85px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 143px;
+}
+
+.themeimg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:221px;
+  height:379px;
+  background:rgba(0,0,0,1);
+  cursor: pointer;
+}
+.themeimg img{
+  position: absolute;
+  width:221px;
+  height:379px;
+}
+.themeInfo {
+  position: absolute;
+}
+.themetitle {
+  font-size:33px;
+  font-family:MicrosoftYaHei-Bold;
+  color:rgba(255,254,254,1);
+  display: flex;
+  justify-content: center;
+}
+.themename {
+  font-size:25px;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,254,254,1);
+}

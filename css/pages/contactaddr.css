@@ -1,0 +1,59 @@
+.rehome {
+  height:60px;
+  background:rgba(255,255,255,1);
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(111,111,111,1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.rehome img {
+  width:16px;
+  height:16px;
+  margin-right: 12px;
+}
+.rehome a{
+  color: #6F6F6F;
+}
+.rehome span {
+  margin-left:12px; 
+}
+/* .rehome a:nth-child(1) {
+  margin-left: 12px;
+} */
+.addrBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.map {
+  display: flex;
+  width:556px;
+  height:327px;
+}
+.map img{
+  width:556px;
+  height:327px;
+
+}
+.mapBox {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-left: 137px;
+  width: 452px;
+}
+.mapBox > div {
+  margin: 20px 0px;
+}
+.mapBox img{
+  width:14px;
+  height:18px;
+  margin-right: 27px;
+}
+.addrBox {
+  margin-bottom: 157px;
+}
