@@ -26,8 +26,8 @@ let newsload = (res) => {
         }
     }
     // 结果为空清空新闻列表
-    if (res.result==null||res.result.length==0) {
-        for (let i=0; i<4; i++) {
+    if (res.result == null || res.result.length == 0) {
+        for (let i = 0; i < 4; i++) {
             newstitle[i].innerHTML = '';
             newscontent[i].innerHTML = '';
             newstime[i].innerHTML = '';
@@ -74,33 +74,49 @@ let indexdes = (res) => {
             }
         }
     })
-}
+};
 
 //设计领域图片数据加载
 let designTitle = (id, url) => {
     $.ajax({
-        data: id,
-        url: url || 'http://rapapi.org/mockjsdata/35927/shejilingyubiaotineirong',
+        // data: id,
+        url: url || baseUrl + '/product/getProductListByParentFloor?floorId='+id,
         success: function (res) {
             let photolist = document.getElementsByClassName('photolist')[0];
             for (let i in res.result) {
                 let dv = document.createElement('div');
                 dv.className = 'photolistInfo';
                 dv.innerHTML = '<img src="' + res.result[i].show_url + '" alt="">' +
-                    '<div class="photoInfo">' +
-                    '<div class="photoInfoname">' + res.result[i].name + '</div>' +
+                    '<div class="photoInfo" style="display: none">' +
+                    '<div class="photoInfoname">' + res.result[i].ch_name + '</div>' +
                     '</div>';
                 photolist.appendChild(dv);
             }
             let photolistInfo = document.getElementsByClassName('photolistInfo');
             for (let i in res.result) {
+                // 点击跳转
                 photolistInfo[i].onclick = () => {
+                    sessionStorage.setItem('name', res.result[i].ch_name);
+                    /*if (id==1) {
+                        sessionStorage.setItem('columnName', '设计领域');
+                        sessionStorage.setItem('columnUrl', 'design.html');
+                    } else {
+                        sessionStorage.setItem('columnName', '服务范畴');
+                        sessionStorage.setItem('columnUrl', 'serve.html');
+                    }*/
                     window.location.href = './designInfo_child.html?id=' + res.result[i].id;
-                }
+                };
+                // 鼠标效果
+                photolistInfo[i].onmouseover = () => {
+                    photolistInfo[i].getElementsByClassName('photoInfo')[0].style.display = 'flex';
+                };
+                photolistInfo[i].onmouseout = () => {
+                    photolistInfo[i].getElementsByClassName('photoInfo')[0].style.display = 'none';
+                };
             }
         }
     })
-}
+};
 //设计领域首页
 let designIndex = (res) => {
     //标题加载
@@ -109,21 +125,21 @@ let designIndex = (res) => {
         for (let i in res.result) {
             let themelisttitle = document.createElement('span');
             themelisttitle.className = 'themelisttitle';
-            themelisttitle.innerHTML = res.result[i].name;
+            themelisttitle.innerHTML = res.result[i].ch_name;
             themelist.appendChild(themelisttitle);
         }
-        ;
-        designTitle(res.result[0].id); //首次加载渲染数据
+        let parentId = res.result[0].parent_id;
+        designTitle(parentId); //首次加载渲染数据
         let themelisttitle = document.getElementsByClassName('themelisttitle');
         for (let i in res.result) {
             //点击选项卡渲染数据
             themelisttitle[i].onclick = () => {
-                sessionStorage.setItem('name', res.result[i].name);
+                sessionStorage.setItem('name', res.result[i].ch_name);
                 window.location.href = './designInfo.html?id=' + res.result[i].id;
             }
         }
     })
-}
+};
 
 //新闻中心
 let loadnews = (res) => {
@@ -174,4 +190,4 @@ let ajax = (url, des, pageNo, pageSize) => {
         }
     })
     // console.log(url)
-}
+};
