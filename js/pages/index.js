@@ -5,9 +5,11 @@ window.onload = () => {
         success: function (res) {
             let banner = document.getElementsByClassName('carousel-inner')[0];
             let html = '';
-            for (let i=0; i<res.result.length; i++) {
-                html += '<div class="carousel-item">\n' +
-                    '        <img class="d-block w-100" src="'+res.result[i].show_url+'" alt="Third slide">\n' +
+            for (let i = 0; i < res.result.length; i++) {
+                let act = '';
+                if (i == 0) act = 'active';
+                html += '<div class="carousel-item ' + act + '">\n' +
+                    '        <img class="d-block w-100" src="' + res.result[i].show_url + '" alt="Third slide">\n' +
                     '      </div>';
             }
             banner.innerHTML = html;
@@ -16,39 +18,47 @@ window.onload = () => {
             console.log(res);
         }
     });
-    //首页选项卡切换事件
-    let titleList = document.getElementsByClassName('titleList');
-    let url = ['http://rapapi.org/mockjsdata/35927/qiyexinwen', 'http://rapapi.org/mockjsdata/35927/hangyezixun', 'http://rapapi.org/mockjsdata/35927/zhuangxiuzhishi'];
-    //首次加载界面事件
-    let fristload = () => {
-        ajax(url[0], 'indexnews'); //首次加载新闻
-        titleList[0].style.color = '#94002C'; //首次加载新闻首个标题为红色
-        newstitle();//点击新闻标题
-        eletype();//装修类别事件
-    }
-    //点击新闻标题变色事件
-    let changeColor = () => {
-        for (let i = 0; i < titleList.length; i++) {
-            titleList[i].style.color = '#000000';
-        }
-    }
-    //点击新闻标题
-    let newstitle = () => {
-        for (let i in titleList) {
-            titleList[i].onclick = () => {
-                changeColor(); //点击新闻标题变色
-                titleList[i].style.color = '#94002C';
-                //发起请求
-                ajax(url[i], 'indexnews', 4)
+    // 加载文章类别
+    let loadArticleType = () => {
+        $.ajax({
+            url: baseUrl + '/articleType/getArticleTypeByParentId/0',
+            success: function (res) {
+                let newstitlelist = document.getElementsByClassName('newstitlelist')[0];
+                let html = '';
+                for (let i = 0; i < res.result.length; i++) {
+                    let clo = '#000000';
+                    if (i == 0) {
+                        clo = '#94002C';
+                        // 首次加载新闻
+                        ajax(baseUrl + '/articlePush/getArticleList?article_type=' + res.result[0].id, 'indexnews', 1, 4);
+                    }
+                    html += '<span class="titleList" onclick="changTitle(this,' + res.result[i].id + ');" style="color: ' + clo + '">' + res.result[i].name + '</span>';
+                }
+                newstitlelist.innerHTML = html;
+            },
+            error: function (res) {
+                console.log(res);
             }
-        }
-    }
+        });
+    };
+    loadArticleType(); // 加载新闻类别
 
     //装修类别
     let eletype = () => {
-        ajax('http://rapapi.org/mockjsdata/35927/zhuangxiuleibie', 'indexdes');
-    }
+        ajax(baseUrl + '/floorDistribution/getFloorDistributionListByParentId?parentId=' + 1, 'indexdes');
+    };
+    eletype();// 装修类别事件
 
-    //首次加载界面
-    fristload();
+};
+
+// 点击新闻类别事件
+function changTitle(obj, id) {
+    let titleList = document.getElementsByClassName('titleList');
+    // 变换颜色
+    for (let i = 0; i < titleList.length; i++) {
+        titleList[i].style.color = '#000000';
+    }
+    obj.style.color = '#94002C';
+    // 改变新闻内容
+    ajax(baseUrl + '/articlePush/getArticleList?article_type=' + id, 'indexnews', 1, 4)
 }

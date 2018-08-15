@@ -40,6 +40,7 @@
         '<link rel="stylesheet" href="./../css/pages/' + headTitle + '.css">' +
         '<script src="./../js/lib/jquery-3.1.1.min.js"></script>' +
         '<script src="./../js/lib/bootstrap.min.js"></script>' +
+        '<script src="./../js/module/common.js"></script>' +
         '<script src="./../js/module/utils.js"></script>' +
         '<script src="./../js/module/md5.js"></script>' +
         '<script src="./../js/pages/' + headTitle + '.js"></script>';
