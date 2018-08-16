@@ -1,6 +1,8 @@
+var pageName = '';
 (function () {
     let cssArr = document.getElementById('page');
     headTitle = cssArr.getAttribute('data-title');
+    pageName = headTitle;
     let head = '<div class="header" id="header" style="display: none">' +
         '<div><img src="" id="logo" alt=""></div>' +
         '<nav class="na navbar navbar-expand-lg navbar-light"  style="height:63px;display:flex;justify-content: flex-end;padding:0px;align-items: center;">' +

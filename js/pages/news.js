@@ -51,6 +51,11 @@ function changTitle(obj, index) {
     for (let i = 0; i < titleList.length; i++) {
         titleList[i].style.color = '#000000';
     }
+    let plate = document.getElementsByClassName('plate')[0];
+    let typeName = document.getElementsByClassName('typeName')[0];
+    plate.innerHTML = result[index].name;
+    typeName.innerHTML = result[index].name;
+
     sessionStorage.setItem('type', result[index].name);
     typeid = result[index].id;
     obj.style.color = '#94002C';
