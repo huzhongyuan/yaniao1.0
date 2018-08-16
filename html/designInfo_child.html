@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head id="headContent">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>雅鸟设计</title>
-    <link rel="stylesheet" href="./../css/pages/etalage.css">
+    <script src="./../js/lib/jquery-3.1.1.min.js"></script>
 </head>
+<script>$("#headContent").load('common/header.html');</script>
+
 <body>
-<script src="./common/head.js" data-title="designInfo_child" data-theme="四川南充天龙酒店"></script>
+<script src="./common/head.js" id="page"  data-title="designInfo_child" data-theme="四川南充天龙酒店"></script>
+<link rel="stylesheet" href="./../css/lib/etalage.css">
+<script src="./../js/module/jquery.etalage.min.js"></script>
+
 <div class="rehome">
     <div>
         <img src="./../images/home.png" alt="">
@@ -79,7 +81,7 @@
             <div class="headercontetnt">
 
             </div>
-            <div class="headerstyle">风格类型：当代时尚风格</div>
+            <div class="headerstyle">风格类型：</div>
             <div class="headertime">
                 <div class="headertimetitle">主创团队</div>
                 <div class="teamlistphoto text-truncate" id="team">

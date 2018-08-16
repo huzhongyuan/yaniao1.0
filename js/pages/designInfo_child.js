@@ -97,17 +97,17 @@ window.onload = () => {
     $.ajax({
         url: baseUrl + '/product/getProductCommentAndTagsById/' + id,
         success: function (res) {
-            let headerreport = document.getElementsByClassName('headerreport')[0];
+            let headerstyle = document.getElementsByClassName('headerstyle')[0];
             let xj = document.getElementsByClassName('xj')[0];
             let xjtext = document.getElementsByClassName('xjtext')[0];
-            xj.innerHTML = '客户评价：'+res.comments.commentScore;
-            xjtext.innerHTML = res.comments.description;
+            xj.innerHTML = '客户评价：'+res.comments[0].commentScore;
+            xjtext.innerHTML = res.comments[0].description;
 
-            let tags = '';
+            let tags = '风格类型：';
             for (let i = 0; i < res.tags.length; i++) {
                 tags += '<span>'+res.tags[i].name+'</span>';
             }
-            headerreport.innerHTML = '风格类型：'+tags;
+            headerstyle.innerHTML = tags;
         },
         error: function (res) {
             console.log(res);

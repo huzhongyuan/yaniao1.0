@@ -1,6 +1,6 @@
 (function () {
-    let cssArr = document.getElementsByTagName('script');
-    headTitle = cssArr[0].getAttribute('data-title');
+    let cssArr = document.getElementById('page');
+    headTitle = cssArr.getAttribute('data-title');
     let head = '<div class="header" id="header" style="display: none">' +
         '<div><img src="" id="logo" alt=""></div>' +
         '<nav class="na navbar navbar-expand-lg navbar-light"  style="height:63px;display:flex;justify-content: flex-end;padding:0px;align-items: center;">' +
@@ -47,7 +47,7 @@
     document.write(headStyle);
     document.write(head);
     if (headTitle != 'index') {
-        let themetitle = cssArr[0].getAttribute('data-theme');
+        let themetitle = cssArr.getAttribute('data-theme');
         let themet = '<div class="plate">' +
             themetitle +
             '</div>';
