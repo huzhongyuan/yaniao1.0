@@ -101,6 +101,17 @@ let loadSiteInfo = (res) => {
         html += '<span><a href="' + res.pcFooter[i].herfUrl + '">' + res.pcFooter[i].columnName + '</a></span>';
     }
     footertitlelist.innerHTML = html;
+    // 得到关于我们
+    if (pageName != null && pageName == 'contactaddr') {
+        let add_ = document.getElementsByClassName('add_')[0];
+        let phone_ = document.getElementsByClassName('phone_')[0];
+        let email_ = document.getElementsByClassName('email_')[0];
+        let tell_ = document.getElementsByClassName('tell_')[0];
+        add_.innerHTML = res.siteInfo.address;
+        phone_.innerHTML = res.siteInfo.tel;
+        email_.innerHTML = res.siteInfo.email;
+        tell_.innerHTML = res.siteInfo.facsimile;
+    }
 };
 
 $(function () {

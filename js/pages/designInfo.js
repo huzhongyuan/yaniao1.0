@@ -7,6 +7,9 @@ window.onload = () => {
     let titlename = document.getElementsByClassName('titlename')[0];
     let title = document.getElementsByClassName('plate')[0];
     let column = document.getElementsByClassName('column')[0];
+    let plate = document.getElementsByClassName('plate')[0];
+
+    plate.innerHTML = name;
     column.innerHTML = columnName;
     column.href = columnUrl;
     title.innerHTML = name;

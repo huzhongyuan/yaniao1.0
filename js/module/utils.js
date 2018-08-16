@@ -212,8 +212,6 @@ let ajax = (url, des, pageNo, pageSize) => {
                 loadEmp(res);  //首页装修类别
             } else if (des == 'design') {
                 designIndex(res); //设计领域首页
-            } else if (des == 'news') {
-                loadnews(res);
             } else if (des == 'loadSiteInfo') {
                 loadSiteInfo(res);
             } else if (des == 'loadnews') {

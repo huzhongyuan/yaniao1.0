@@ -3,7 +3,9 @@ window.onload = () => {
 
     let newsnam = sessionStorage.getItem('newsname');
     let type = sessionStorage.getItem('type');
+    let plate = document.getElementsByClassName('plate')[0];
 
+    plate.innerHTML = newsnam;
     let typename = document.getElementsByClassName('typename')[0];
     typename.innerHTML = type;
     let newsname = document.getElementsByClassName('newsname')[0];

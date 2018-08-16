@@ -10,7 +10,7 @@ window.onload = () => {
                 let act = '';
                 if (i == 0) act = 'active';
                 html += '<div class="carousel-item ' + act + '">\n' +
-                    '        <img class="d-block w-100" src="' + res.result[i].show_url + '" alt="Third slide">\n' +
+                    '        <img onerror="imgNotfind(event);" class="d-block w-100" src="' + res.result[i].show_url + '" alt="Third slide">\n' +
                     '      </div>';
             }
             banner.innerHTML = html;
@@ -26,6 +26,7 @@ window.onload = () => {
             success: function (res) {
                 let newstitlelist = document.getElementsByClassName('newstitlelist')[0];
                 let html = '';
+                result = res.result;
                 for (let i = 0; i < res.result.length; i++) {
                     let clo = '#000000';
                     if (i == 0) {
@@ -63,5 +64,5 @@ function changTitle(obj, index) {
     sessionStorage.setItem('type', result[index].name);
     obj.style.color = '#94002C';
     // 改变新闻内容
-    ajax(baseUrl + '/articlePush/getArticleList?article_type=' + result[index].id, 'loadnews', 1, 4)
+    ajax(baseUrl + '/articlePush/getArticleList?article_type=' + result[index].id, 'indexnews', 1, 4)
 }
