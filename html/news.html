@@ -7,6 +7,8 @@
 <script>$("#headContent").load('common/header.html');</script>
 <body>
   <script src="./common/head.js"  id="page" data-title = "news" data-theme="企业新闻"></script>
+  <script src="./../js/lib/jqPaginator.js"></script>
+
   <div class="rehome">
     <div>
         <img src="./../images/home.png" alt="">
@@ -19,9 +21,9 @@
     <div></div>
   </div>
   <div class="themelist">
-    <span class="titleList">企业新闻</span>
+    <!--<span class="titleList">企业新闻</span>
     <span class="titleList">行业资讯</span> 
-    <span class="titleList">装修知识</span>
+    <span class="titleList">装修知识</span>-->
   </div>
 
   <div class="newscontent">
@@ -29,15 +31,7 @@
   </div>
 
   <div class="deverpage">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">上一页</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">下一页</a></li>
-      </ul>
-    </nav>
+    <ul class="pagination" id="pagination"></ul>
   </div>
   <script src="./common/foot.js" data-title = "design"></script>
 </body>

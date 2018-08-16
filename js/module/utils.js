@@ -145,17 +145,21 @@ let designIndex = (res) => {
 let loadnews = (res) => {
     let newscontent = document.getElementsByClassName('newscontent')[0];
     newscontent.innerHTML = '';
+    let content = '';
     for (let i in res.result) {
-        let newslist = document.createElement('div');
-        newslist.className = 'newslist';
-        newslist.innerHTML = '<img src="' + res.result[i].show_url + '" alt="">' +
+        content += '<div class="newslist"><img src="' + res.result[i].show_url + '" alt="">' +
             '<div class="newslistbox">' +
             '<div class="newslisttitle">' + res.result[i].title + '</div>' +
-            '<div class="newslisttime">' + +res.result[i].time + +'</div>' +
-            '<div class="newslistcontent">' + res.result[i].content + '</div>' +
-            '</div>';
-        newscontent.appendChild(newslist);
+            '<div class="newslisttime">' + formatDateTime(res.result[i].gmt_modified) +'</div>' +
+            '<div class="newslistcontent">' + res.result[i].digest + '</div>' +
+            '</div></div>';
     }
+    newscontent.innerHTML = content;
+    // 设置页数
+    $('#pagination').jqPaginator('option', {
+        totalPages: Math.ceil(res.totalCount / 4)
+    });
+    // 设置事件
     for (let i in res.result) {
         let newslist = document.getElementsByClassName('newslist');
         newslist[i].onclick = () => {
@@ -163,7 +167,7 @@ let loadnews = (res) => {
             window.location.href = './newsInfo.html?id=' + res.result[i].id;
         }
     }
-}
+};
 
 let ajax = (url, des, pageNo, pageSize) => {
     $.ajax({
@@ -183,6 +187,8 @@ let ajax = (url, des, pageNo, pageSize) => {
                 loadnews(res);
             } else if (des == 'loadSiteInfo') {
                 loadSiteInfo(res);
+            } else if (des == 'loadnews') {
+                loadnews(res);
             }
         },
         error: function (res) {

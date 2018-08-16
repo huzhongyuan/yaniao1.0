@@ -1,26 +1,60 @@
+let result = '';
+let typeid = 0;
 window.onload = () => {
-  let titleList = document.getElementsByClassName('titleList');
-  let plate = document.getElementsByClassName('plate')[0];
-  let url = ['http://rapapi.org/mockjsdata/35927/qiyexinwen', 'http://rapapi.org/mockjsdata/35927/hangyezixun', 'http://rapapi.org/mockjsdata/35927/zhuangxiuzhishi'];
-    //点击新闻标题变色事件
-    let changeColor = () => {
-      for (let i = 0; i < titleList.length; i++) {
-        titleList[i].style.color = '#000000';
-      }
-    }
-  ajax(url[0], 'news', 4)
-  //点击新闻标题
-  let newstitle = () => {
-    for (let i in titleList) {
-      titleList[i].onclick = () => {
-        plate.innerHTML = titleList[i].innerHTML;
-        changeColor(); //点击新闻标题变色
-        titleList[i].style.color = '#94002C';
-        //发起请求
-        ajax(url[i], 'news', 4)
-      }
-    }
-  }
+    // 加载文章类别
+    let loadArticleType = () => {
+        $.ajax({
+            url: baseUrl + '/articleType/getArticleTypeByParentId/0',
+            success: function (res) {
+                let newstitlelist = document.getElementsByClassName('themelist')[0];
+                let html = '';
+                result = res.result;
+                for (let i = 0; i < res.result.length; i++) {
+                    let clo = '#000000';
+                    if (i == 0) {
+                        clo = '#94002C';
+                        sessionStorage.setItem('type', res.result[0].name);
+                        typeid = res.result[0].id;
+                        // 首次加载新闻
+                        ajax(baseUrl + '/articlePush/getArticleList?article_type=' + res.result[0].id, 'loadnews', 1, 4);
+                    }
+                    html += '<span class="titleList" onclick="changTitle(this,' + i + ');" style="color: ' + clo + '">' + res.result[i].name + '</span>';
+                }
+                newstitlelist.innerHTML = html;
+            },
+            error: function (res) {
+                console.log(res);
+            }
+        });
+    };
+    loadArticleType(); // 加载新闻类别
 
-  newstitle();
+    // var pageNum = 1;
+    $.jqPaginator('#pagination', {
+        totalPages: 100,
+        visiblePages: 5,
+        currentPage: 1,
+        prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+        next: '<li class="next"><a href="javascript:;">下一页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        onPageChange: function (page,type) {
+            // pageNum = page;
+            ajax(baseUrl + '/articlePush/getArticleList?article_type=' + typeid, 'loadnews', page, 4);
+        }
+    });
+};
+
+// 点击新闻类别事件
+function changTitle(obj, index) {
+    let titleList = document.getElementsByClassName('titleList');
+    // 变换颜色
+    for (let i = 0; i < titleList.length; i++) {
+        titleList[i].style.color = '#000000';
+    }
+    sessionStorage.setItem('type', result[index].name);
+    typeid = result[index].id;
+    obj.style.color = '#94002C';
+    // 改变新闻内容
+    ajax(baseUrl + '/articlePush/getArticleList?article_type=' + result[index].id, 'loadnews', 1, 4)
 }
+
