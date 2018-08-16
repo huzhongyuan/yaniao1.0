@@ -1,17 +1,22 @@
 window.onload = () => {
-    var map = new AMap.Map("allmap", {
-        resizeEnable: true,
-        zoom: 13,
-    });
-    AMap.service(["AMap.PlaceSearch"], function() {
-        var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
-            pageSize: 1,
-            pageIndex: 1,
-            city: "", //城市
-            map: map,
-            panel: "",
-        });
-        //关键字查询
-        placeSearch.search('重庆');
+    // 取得经纬度
+    $.ajax({
+        url: baseUrl + '/sysDictionary/getDicByKeytable?Keytable=latLong',
+        success: function (res) {
+            let latLong = res[0].keyValue;
+            let arr = latLong.split(',');
+            var map = new AMap.Map("allmap", {
+                resizeEnable: true,
+                zoom: 16,
+                center: [arr[0],arr[1]]
+            });
+            var marker=new AMap.Marker({
+                map:map,
+                position:new AMap.LngLat(arr[0],arr[1])
+            });
+        },
+        error: function (res) {
+            console.log(res);
+        }
     });
 };
