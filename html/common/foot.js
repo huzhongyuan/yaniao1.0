@@ -33,6 +33,19 @@ document.write(foot);
 
 // 设置常数
 const baseUrl = 'http://118.24.159.161:8082/pc';
+//站点信息初始化
+var siteInfo = {
+    address:"重庆市九龙坡区石桥铺",
+    copyright:"© 2018-2019 黑鸥菩科技",
+    description:"雅鸟软装官方网站",
+    icon:"http://dzrenai.oss-cn-beijing.aliyuncs.com/img/2018/7/5da80089-9f98-4f1a-8590-8fd971565c5d.png",
+    icp:"蜀ICP备17044073号",
+    keywords:"雅鸟,软装,雅鸟软装",
+    name:"雅鸟软装",
+    networksecurity:"蜀公网安备11010802*****",
+    tel:"0818-6322222",
+    url:"http://www.yaniaozg.com",
+};
 
 // 获取基本信息
 let timeStamp = Date.parse(new Date());
@@ -54,6 +67,7 @@ let loadSiteInfo = (res) => {
     let logo = document.getElementById('logo');
     let pcHeaderList = document.getElementById('pcHeader');
 
+    siteInfo = res.siteInfo;
     // 设置基本信息
     logo.src = res.headLogo.show_url;
     footergzhimg.src = res.code.show_url;
@@ -91,6 +105,11 @@ let loadSiteInfo = (res) => {
 
 $(function () {
     $("#header").fadeIn(800);
+    $("title[name='title']").text(siteInfo.name);//修改title值
+    $("meta[name='keywords']").attr("content",siteInfo.keywords);//修改keywords值
+    $("meta[name='description']").attr("content",siteInfo.description);//修改keywords值
+    $("link[name='ico']").attr("href",siteInfo.icon);//修改icon
+
 });
 
 ajax(baseUrl + '/siteInfo', 'loadSiteInfo');
