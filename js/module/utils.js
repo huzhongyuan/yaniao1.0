@@ -44,7 +44,7 @@ let indexdes = (res) => {
             let themeimg = document.createElement('div');
             themeimg.className = 'themeimg';
             themeimg.innerHTML =
-                '<img src="' + res.result[i].show_url + '" alt="">' +
+                '<img src="' + res.result[i].show_url + '" alt="" onerror="imgNotfind(event);">' +
                 '<div class="themeInfo">' +
                 '<div class="themetitle">' + res.result[i].ch_name + '</div>' +
                 '<div class="themename">' + res.result[i].en_name + '</div>' +
@@ -86,7 +86,7 @@ let designTitle = (id, url) => {
             for (let i in res.result) {
                 let dv = document.createElement('div');
                 dv.className = 'photolistInfo col-sm-3';
-                dv.innerHTML = '<img src="' + res.result[i].show_url + '" alt="">' +
+                dv.innerHTML = '<img src="' + res.result[i].show_url + '" alt="" onerror="imgNotfind(event);">' +
                     '<div class="photoInfo" style="display: none">' +
                     '<div class="photoInfoname">' + res.result[i].ch_name + '</div>' +
                     '</div>';
@@ -147,7 +147,7 @@ let loadnews = (res) => {
     newscontent.innerHTML = '';
     let content = '';
     for (let i in res.result) {
-        content += '<div class="newslist"><img src="' + res.result[i].show_url + '" alt="">' +
+        content += '<div class="newslist"><img src="' + res.result[i].show_url + '" alt="" onerror="imgNotfind(event);">' +
             '<div class="newslistbox">' +
             '<div class="newslisttitle">' + res.result[i].title + '</div>' +
             '<div class="newslisttime">' + formatDateTime(res.result[i].gmt_modified) + '</div>' +
