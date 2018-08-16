@@ -85,7 +85,7 @@ let designTitle = (id, url) => {
             let photolist = document.getElementsByClassName('photolist')[0];
             for (let i in res.result) {
                 let dv = document.createElement('div');
-                dv.className = 'photolistInfo';
+                dv.className = 'photolistInfo col-sm-3';
                 dv.innerHTML = '<img src="' + res.result[i].show_url + '" alt="">' +
                     '<div class="photoInfo" style="display: none">' +
                     '<div class="photoInfoname">' + res.result[i].ch_name + '</div>' +
