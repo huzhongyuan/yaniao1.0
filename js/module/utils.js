@@ -80,7 +80,7 @@ let indexdes = (res) => {
 let designTitle = (id, url) => {
     $.ajax({
         // data: id,
-        url: url || baseUrl + '/product/getProductListByParentFloor?floorId='+id,
+        url: url || baseUrl + '/product/getProductListByParentFloor?floorId=' + id,
         success: function (res) {
             let photolist = document.getElementsByClassName('photolist')[0];
             for (let i in res.result) {
@@ -150,7 +150,7 @@ let loadnews = (res) => {
         content += '<div class="newslist"><img src="' + res.result[i].show_url + '" alt="">' +
             '<div class="newslistbox">' +
             '<div class="newslisttitle">' + res.result[i].title + '</div>' +
-            '<div class="newslisttime">' + formatDateTime(res.result[i].gmt_modified) +'</div>' +
+            '<div class="newslisttime">' + formatDateTime(res.result[i].gmt_modified) + '</div>' +
             '<div class="newslistcontent">' + res.result[i].digest + '</div>' +
             '</div></div>';
     }
@@ -169,6 +169,33 @@ let loadnews = (res) => {
     }
 };
 
+// 加载招聘信息
+let loadEmp = (res) => {
+    let accordionExample = document.getElementById('accordionExample');
+    let html = '';
+    for (let i = 0; i < res.result.length; i++) {
+        html += '<div class="card">\n' +
+            '      <div class="card-header" id="heading'+i+'">\n' +
+            '        <h5 class="mb-0">\n' +
+            '          <button class="btn btn-link collapsed upmore" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="false" aria-controls="collapseTwo">\n' +
+            '+&nbsp;&nbsp;'+res.result[i].title +
+            '          </button>\n' +
+            '        </h5>\n' +
+            '      </div>\n' +
+            '      <div id="collapse'+i+'" class="collapse" aria-labelledby="heading'+i+'" data-parent="#accordionExample">\n' +
+            '        <div class="card-body">\n' +
+            res.result[i].content +
+            '        </div>\n' +
+            '      </div>\n' +
+            '    </div>';
+    }
+    accordionExample.innerHTML = html;
+    // 设置页数
+    $('#pagination').jqPaginator('option', {
+        totalPages: Math.ceil(res.totalCount / 4)
+    });
+};
+
 let ajax = (url, des, pageNo, pageSize) => {
     $.ajax({
         url: url,
@@ -181,6 +208,8 @@ let ajax = (url, des, pageNo, pageSize) => {
                 newsload(res);    //首页新闻加载
             } else if (des == 'indexdes') {
                 indexdes(res);  //首页装修类别
+            } else if (des == 'loadEmp') {
+                loadEmp(res);  //首页装修类别
             } else if (des == 'design') {
                 designIndex(res); //设计领域首页
             } else if (des == 'news') {

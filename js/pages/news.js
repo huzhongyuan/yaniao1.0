@@ -4,7 +4,7 @@ window.onload = () => {
     // 加载文章类别
     let loadArticleType = () => {
         $.ajax({
-            url: baseUrl + '/articleType/getArticleTypeByParentId/0',
+            url: baseUrl + '/articleType/getArticleTypeByParentId/1',
             success: function (res) {
                 let newstitlelist = document.getElementsByClassName('themelist')[0];
                 let html = '';

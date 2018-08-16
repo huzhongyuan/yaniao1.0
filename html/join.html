@@ -7,6 +7,8 @@
 <script>$("#headContent").load('common/header.html');</script>
 <body>
   <script src="./common/head.js" id="page"  data-title = "join" data-theme="加入我们"></script>
+  <script src="./../js/lib/jqPaginator.js"></script>
+
   <div class="rehome">
     <div>
         <img src="./../images/home.png" alt="">
@@ -19,7 +21,7 @@
     <div></div>
   </div>
   <div class="accordion" id="accordionExample">
-    <div class="card">
+    <!--<div class="card">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
           <button class="btn btn-link collapsed upmore" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -104,18 +106,12 @@
           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 
-  <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">上一页</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">下一页</a></li>
-      </ul>
-  </nav>
+  <div class="deverpage">
+      <ul class="pagination" id="pagination"></ul>
+  </div>
 
   <script src="./common/foot.js" data-title = "design"></script>
 </body>
