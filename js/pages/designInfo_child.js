@@ -116,7 +116,7 @@ window.onload = () => {
             let headerstyle = document.getElementsByClassName('headerstyle')[0];
             let xj = document.getElementsByClassName('xj')[0];
             let xjtext = document.getElementsByClassName('xjtext')[0];
-            xj.innerHTML = '客户评价：'+res.comments[0].commentScore;
+            xj.innerHTML = '客户评价：<i class="glyphicon glyphicon-star"></i>'+res.comments[0].commentScore;
             xjtext.innerHTML = res.comments[0].description;
 
             let tags = '风格类型：';
