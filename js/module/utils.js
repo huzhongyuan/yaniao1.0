@@ -117,6 +117,45 @@ let designTitle = (id, url) => {
         }
     })
 };
+
+/**
+ * 获取团队列表
+ * @param url
+ */
+let getStaff = (url) => {
+    $.ajax({
+        url: url || baseUrl + '/staff/getStaffById',
+        success: function (res) {
+            let photolist = document.getElementsByClassName('photolist')[0];
+            for (let i in res.result) {
+                let dv = document.createElement('div');
+                dv.className = 'photolistInfo col-sm-3';
+                dv.innerHTML = '<img src="' + res.result[i].show_url + '" alt="" onerror="imgNotfind(event);">' +
+                    '<div class="photoInfo" style="display: none">' +
+                    '<div class="photoInfoname">' +
+                    '<p>' + res.result[i].name  + '</p>' +
+                    '<p>' + res.result[i].station_name + '</p>' +
+                    '</div>' +
+                    '</div>';
+                photolist.appendChild(dv);
+            }
+            let photolistInfo = document.getElementsByClassName('photolistInfo');
+            for (let i in res.result) {
+                // 点击跳转
+                photolistInfo[i].onclick = () => {
+                    window.location.href = './memberInfo.html?id=' + res.result[i].id;
+                };
+                // 鼠标效果
+                photolistInfo[i].onmouseover = () => {
+                    photolistInfo[i].getElementsByClassName('photoInfo')[0].style.display = 'flex';
+                };
+                photolistInfo[i].onmouseout = () => {
+                    photolistInfo[i].getElementsByClassName('photoInfo')[0].style.display = 'none';
+                };
+            }
+        }
+    })
+};
 //设计领域首页
 let designIndex = (res) => {
     //标题加载
@@ -156,8 +195,9 @@ let loadnews = (res) => {
     }
     newscontent.innerHTML = content;
     // 设置页数
+    console.log(res.totalCount)
     $('#pagination').jqPaginator('option', {
-        totalPages: Math.ceil(res.totalCount / 4)
+        totalPages: (res.totalCount==0) ? 1 : Math.ceil(res.totalCount / 4)
     });
     // 设置事件
     for (let i in res.result) {
@@ -192,7 +232,7 @@ let loadEmp = (res) => {
     accordionExample.innerHTML = html;
     // 设置页数
     $('#pagination').jqPaginator('option', {
-        totalPages: Math.ceil(res.totalCount / 4)
+        totalPages: res.totalCount==0 ? 1 : Math.ceil(res.totalCount / 4)
     });
 };
 
@@ -223,4 +263,28 @@ let ajax = (url, des, pageNo, pageSize) => {
         }
     })
     // console.log(url)
+};
+
+/**
+ *
+ * @param totalPages 设置分页的总页数
+ * @param visiblePages 设置最多显示的页码
+ * @param currentPage 设置当前页面
+ * @param ajaxUrl ajax请求url
+ * @param ajaxType ajax请求类别
+ * @param pageSize 每页查询数量
+ */
+let customJqPaginator = (totalPages, visiblePages, currentPage, ajaxUrl,ajaxType,pageSize) => {
+    $.jqPaginator('#pagination', {
+        totalPages: totalPages,
+        visiblePages: visiblePages,
+        currentPage: currentPage,
+        prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+        next: '<li class="next"><a href="javascript:;">下一页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        onPageChange: function (page,type) {
+            // pageNum = page;
+            ajax(ajaxUrl, ajaxType, page, pageSize);
+        }
+    });
 };

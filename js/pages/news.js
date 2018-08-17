@@ -30,6 +30,7 @@ window.onload = () => {
     loadArticleType(); // 加载新闻类别
 
     // var pageNum = 1;
+    //customJqPaginator(100, 5, 1, baseUrl + '/articlePush/getArticleList?article_type=' + typeid,'loadnews',4);
     $.jqPaginator('#pagination', {
         totalPages: 100,
         visiblePages: 5,
@@ -59,7 +60,11 @@ function changTitle(obj, index) {
     sessionStorage.setItem('type', result[index].name);
     typeid = result[index].id;
     obj.style.color = '#94002C';
+
+    $('#pagination').jqPaginator('destroy');
+    customJqPaginator(100, 5, 1, baseUrl + '/articlePush/getArticleList?article_type=' + typeid,'loadnews',4);
+
     // 改变新闻内容
-    ajax(baseUrl + '/articlePush/getArticleList?article_type=' + result[index].id, 'loadnews', 1, 4)
+    //ajax(baseUrl + '/articlePush/getArticleList?article_type=' + result[index].id, 'loadnews', 1, 4)
 }
 
