@@ -1,0 +1,60 @@
+.rehome {
+  height:60px;
+  background:rgba(255,255,255,1);
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(111,111,111,1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 73px;
+}
+.rehome img {
+  width:16px;
+  height:16px;
+}
+.rehome a{
+  color: #6F6F6F;
+  margin-left: 12px;
+}
+.rehome span {
+  margin-left:12px; 
+}
+.menberInfoBox {
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(81,81,81,1);
+  width: 550px;
+  margin-left: 56px;
+}
+.menberInfoBox > div:not(:first-child) {
+  margin-top: 39px;
+}
+.menbercon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 87px;
+}
+
+.menbercon img{
+  width:550px;
+  height:680px;
+}
+.personal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.name {
+  font-size:30px;
+  font-family:MicrosoftYaHei;
+  color:rgba(1,1,1,1);
+  margin-right: 28px;
+}
+
+.position {
+  font-size:18px;
+  font-family:MicrosoftYaHei;
+  color:rgba(0,0,0,1);
+}

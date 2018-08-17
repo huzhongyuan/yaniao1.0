@@ -9,7 +9,7 @@ window.onload = () => {
             for (let i = 0; i < res.result.length; i++) {
                 let act = '';
                 if (i == 0) act = 'active';
-                html += '<div class="carousel-item ' + act + '">\n' +
+                html += '<div onclick="gotoUrl('+res.result[i].herf_url+');" class="carousel-item ' + act + '">\n' +
                     '        <img onerror="imgNotfind(event);" class="d-block w-100" src="' + res.result[i].show_url + '" alt="Third slide">\n' +
                     '      </div>';
             }
@@ -65,4 +65,9 @@ function changTitle(obj, index) {
     obj.style.color = '#94002C';
     // 改变新闻内容
     ajax(baseUrl + '/articlePush/getArticleList?article_type=' + result[index].id, 'indexnews', 1, 4)
+}
+
+// banner跳转事件
+function gotoUrl(url) {
+    window.location.href = url;
 }

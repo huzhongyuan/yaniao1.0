@@ -10,6 +10,7 @@ window.onload = () => {
     let plate = document.getElementsByClassName('plate')[0];
 
     plate.innerHTML = name;
+    if (columnName == null) column.nextElementSibling.style.display = 'none';
     column.innerHTML = columnName;
     column.href = columnUrl;
     title.innerHTML = name;
