@@ -77,7 +77,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 98px;
+/*  margin-bottom: 98px;*/
 }
 .rehome img {
   width:16px;

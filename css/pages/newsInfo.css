@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 24px;
 }
 .rehome img {
   width:16px;
@@ -47,14 +47,13 @@
   font-size:18px;
   font-family:MicrosoftYaHei;
   color:rgba(54,54,54,1);
-  margin-top:52px;
-  margin-bottom: 201px;
+  margin: 56px 0 16px;
 }
 .devipage {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 169px;
+  margin: 8px 0 16px;
 }
 .devipage div{
   display: flex;
@@ -66,6 +65,7 @@
   font-size:18px;
   font-family:MicrosoftYaHei;
   color:rgba(15,15,15,1);
+  cursor: pointer;
 }
 .back {
   width:220px;
