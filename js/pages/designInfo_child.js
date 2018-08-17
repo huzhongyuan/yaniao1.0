@@ -101,7 +101,7 @@ window.onload = () => {
             let team = document.getElementById('team');
             let html = '';
             for (let i = 0; i < res.result.length; i++) {
-                html += '<img onerror="imgNotfind(event);" src="'+res.result[i].show_url+'" alt="">';
+                html += '<img style="cursor: pointer" onclick="gotoUrl('+res.result[i].id+');" onerror="imgNotfind(event);" src="'+res.result[i].show_url+'" alt="">';
             }
             team.innerHTML = html;
         },
@@ -130,3 +130,7 @@ window.onload = () => {
         }
     });
 };
+// 跳转Url
+function gotoUrl(id) {
+    window.location.href = 'memberInfo.html?id=' + id;
+}

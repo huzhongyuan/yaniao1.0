@@ -1,7 +1,4 @@
 window.onload = () => {
-    let personNameSpan = document.getElementsByClassName('personNameSpan')[0];
-    let personName = sessionStorage.getItem('personName');
-    personNameSpan.innerHTML = personName;
 
     // 加载员工基本信息
     let id = getQueryVariable('id');
@@ -12,7 +9,9 @@ window.onload = () => {
             let name = document.getElementsByClassName('name')[0];
             let position = document.getElementsByClassName('position')[0];
             let description = document.getElementsByClassName('description')[0];
+            let personNameSpan = document.getElementsByClassName('personNameSpan')[0];
 
+            personNameSpan.innerHTML = res.result[0].name;
             personImg.src = res.result[0].show_url;
             name.innerHTML = res.result[0].name;
             position.innerHTML = res.result[0].station_name;
