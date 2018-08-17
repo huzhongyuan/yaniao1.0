@@ -9,7 +9,7 @@ window.onload = () => {
             for (let i = 0; i < res.result.length; i++) {
                 let act = '';
                 if (i == 0) act = 'active';
-                html += '<div onclick="gotoUrl('+res.result[i].herf_url+');" class="carousel-item ' + act + '">\n' +
+                html += '<div style="cursor: pointer" onclick="gotoUrl(`'+res.result[i].herf_url+'`);" class="carousel-item ' + act + '">\n' +
                     '        <img onerror="imgNotfind(event);" class="d-block w-100" src="' + res.result[i].show_url + '" alt="Third slide">\n' +
                     '      </div>';
             }

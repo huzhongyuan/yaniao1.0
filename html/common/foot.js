@@ -68,8 +68,16 @@ let loadSiteInfo = (res) => {
     let pcHeaderList = document.getElementById('pcHeader');
 
     siteInfo = res.siteInfo;
+    // 修改头部
+    $("title[name='title']").text(siteInfo.name);//修改title值
+    $("meta[name='keywords']").attr("content",siteInfo.keywords);//修改keywords值
+    $("meta[name='description']").attr("content",siteInfo.description);//修改keywords值
+    $("link[name='ico']").attr("href",siteInfo.icon);//修改icon
     // 设置基本信息
     logo.src = res.headLogo.show_url;
+    logo.onclick = () => {
+        window.location.href = res.headLogo.herf_url;
+    };
     footergzhimg.src = res.code.show_url;
     footerbq.innerHTML = res.siteInfo.copyright + '&nbsp;&nbsp;&nbsp;IPC备案证书号：' + res.siteInfo.icp;
     footeraddr.innerHTML = '地址：' + res.siteInfo.address;
@@ -116,11 +124,6 @@ let loadSiteInfo = (res) => {
 
 $(function () {
     $("#header").fadeIn(800);
-    $("title[name='title']").text(siteInfo.name);//修改title值
-    $("meta[name='keywords']").attr("content",siteInfo.keywords);//修改keywords值
-    $("meta[name='description']").attr("content",siteInfo.description);//修改keywords值
-    $("link[name='ico']").attr("href",siteInfo.icon);//修改icon
-
 });
 
 ajax(baseUrl + '/siteInfo', 'loadSiteInfo');
