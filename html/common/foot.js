@@ -32,7 +32,9 @@ document.write(foot);
 // }
 
 // 设置常数
-const baseUrl = 'http://118.24.159.161:8082/pc';
+//const baseUrl = 'http://118.24.159.161:8082/pc';
+//const baseUrl = 'http://localhost:8082/pc';
+const baseUrl = 'http://www.yaniaozg.com:8092/pc';
 //站点信息初始化
 var siteInfo = {
     address:"重庆市九龙坡区石桥铺",
