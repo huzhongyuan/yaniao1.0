@@ -37,9 +37,10 @@ var pageName = '';
         '</div>';
 
     let headStyle = '<link rel="stylesheet" href="./../css/lib/bootstrap.min.css">' +
-        '<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">">' +
-        '<link rel="stylesheet" href="./../css/lib/font-awesome.css">' +
+        /*'<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">">' +
+        '<link rel="stylesheet" href="./../css/lib/font-awesome.css">' +*/
         '<link rel="stylesheet" href="./../css/module/header.css">' +
+        '<link rel="stylesheet" href="./../font-awesome-4.7.0/css/font-awesome.css">' +
         '<link rel="stylesheet" href="./../css/module/footer.css">' +
         '<link rel="stylesheet" href="./../css/pages/' + headTitle + '.css">' +
         '<script src="./../js/lib/jquery-3.1.1.min.js"></script>' +
