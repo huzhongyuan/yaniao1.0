@@ -69,8 +69,8 @@ function mouseover(that) {
     $(".showName").text($(that).attr("data-name")+" "+ $(that).attr("data-station-name"));
     //$(".showStation").text($(that).attr("data-station-name"));
     $(".showImage").css({
-        "left":event.clientX,
-        "top":event.clientY,
+        "left":event.clientX+5,
+        "top":event.clientY+20,
         "width":w+"px",
         "height":h+"px",
         "background":"url('"+imgUrl+"') no-repeat",
