@@ -118,11 +118,11 @@ window.onload = () => {
             let xjtext = document.getElementsByClassName('xjtext')[0];
 
             let html = '';
-            for (let i=0; i<res.comments[0].commentScore; i++) {
+            for (let i=0; i<res.comments[res.comments.length-1].commentScore; i++) {
                 html += '<i class="fa fa-star" aria-hidden="true"></i>';
             }
             xj.innerHTML = '客户评价：'+html;
-            xjtext.innerHTML = res.comments[0].description;
+            xjtext.innerHTML = res.comments[res.comments.length-1].description;
 
             let tags = '风格类型：';
             for (let i = 0; i < res.tags.length; i++) {
