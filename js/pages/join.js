@@ -11,7 +11,7 @@ window.onload = () => {
         page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
         onPageChange: function (page,type) {
             // pageNum = page;
-            ajax(baseUrl + '/articlePush/getArticleList?article_type=2', 'loadEmp', page, 6);
+            ajax(baseUrl + '/articlePush/getArticleListByParentType?article_parent_type=2', 'loadEmp', page, 6);
         }
     });
 };

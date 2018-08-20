@@ -13,27 +13,23 @@ function getQueryVariable(variable) {
 
 //首页新闻加载
 let newsload = (res) => {
-    let newsInfo = document.getElementsByClassName('newsInfo');
-    let newstitle = document.getElementsByClassName('newstitle');
-    let newscontent = document.getElementsByClassName('newscontent');
-    let newstime = document.getElementsByClassName('newstime');
+    let newsInfoBox = document.getElementsByClassName('newsInfoBox')[0];
+
+    var html = '';
     for (let i in res.result) {
-        newstitle[i].innerHTML = res.result[i].title;
-        newscontent[i].innerHTML = res.result[i].digest;
-        newstime[i].innerHTML = formatDateTime(res.result[i].gmt_modified);
-        newsInfo[i].onclick = () => {
-            window.location.href = './newsInfo.html?id=' + res.result[i].id;
-        }
+        html += '<div class="newsInfo" onclick="gotoArticleDetail('+res.result[i].id+')">\n' +
+            '        <div class="newstitle">'+res.result[i].title+'</div>\n' +
+            '        <div class="newscontent">'+res.result[i].digest+'</div>\n' +
+            '        <div class="newstime">'+formatDateTime(res.result[i].gmt_modified)+'</div>\n' +
+            '      </div>';
     }
-    // 结果为空清空新闻列表
-    if (res.result == null || res.result.length == 0) {
-        for (let i = 0; i < 4; i++) {
-            newstitle[i].innerHTML = '';
-            newscontent[i].innerHTML = '';
-            newstime[i].innerHTML = '';
-        }
-    }
+
+    newsInfoBox.innerHTML = html;
 };
+
+function gotoArticleDetail(id) {
+    window.location.href = './newsInfo.html?id=' + id;
+}
 
 //首页装修类别
 let indexdes = (res) => {
