@@ -3,7 +3,7 @@
   /* widows: 2400px; */
 }
 .news {
-  height: 540px;
+/*  height: 540px;*/
   background:rgba(255,255,255,1);
 }
 .newstitlelist {
@@ -75,11 +75,11 @@
   overflow: hidden;
 }
 .theme {
-  margin-top: 85px;
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 143px;
+  margin-bottom: 40px;
 }
 
 .themeimg {
