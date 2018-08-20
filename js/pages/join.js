@@ -1,6 +1,6 @@
 window.onload = () => {
     // 加载招聘信息
-    ajax(baseUrl + '/articlePush/getArticleList?article_type=2', 'loadEmp', 1, 6);
+    ajax(baseUrl + '/articlePush/getArticleListByParentType?article_parent_type=2', 'loadEmp', 1, 6);
     // 分页插件
     $.jqPaginator('#pagination', {
         totalPages: 100,
