@@ -24,6 +24,8 @@ window.onload = () => {
             let preNext = res.preNext;
 
             newsInfocontenttitle.innerHTML = result.title;
+            plate.innerHTML = result.title;
+            newsname.innerHTML = result.title;
             newsInfocontenttime.innerHTML = formatDateTime(result.pushTime);
             newsInfocontentcon.innerHTML = result.content;
 
@@ -37,7 +39,9 @@ window.onload = () => {
                     window.location.href = 'newsInfo.html?id=' + preNext[1].id;
                 };
             } else if (preNext.length === 1) {
-                if (preNext[0].is_top>result.isTop||preNext[0].sort>result.sort||preNext[0].id>result.id) {
+                if (preNext[0].is_top>result.isTop||
+                    (preNext[0].is_top==result.isTop&&preNext[0].sort>result.sort)||
+                    (preNext[0].is_top==result.isTop&&preNext[0].sort==result.sort&&preNext[0].id>result.id)) {
                     back.innerHTML = preNext[0].title;
                     back.onclick = () => {
                         window.location.href = 'newsInfo.html?id=' + preNext[0].id;
