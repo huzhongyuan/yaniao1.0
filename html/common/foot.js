@@ -49,6 +49,8 @@ var siteInfo = {
     url:"http://www.yaniaozg.com",
 };
 
+lessThanLocationHref(750,"http://mobile.yaniaozg.com/");
+
 // 获取基本信息
 let timeStamp = Date.parse(new Date());
 let token = timeStamp + 'hopynrztoken';

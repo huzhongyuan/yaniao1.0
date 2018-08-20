@@ -12,6 +12,30 @@ if(aQuery.length > 1)
     }
 }
 
+/**
+ * 页面宽度大于多少跳转
+ * @param width
+ * @param url
+ */
+function greaterThanLocationHref(width,url) {
+    let w = document.body.clientWidth;
+    if (w >= width) {
+        window.location.href = url;
+    }
+}
+
+/**
+ * 页面宽度小于多少跳转
+ * @param width
+ * @param url
+ */
+function lessThanLocationHref(width,url) {
+    let w = document.body.clientWidth;
+    if (w < width) {
+        window.location.href = url;
+    }
+}
+
 //判断是否微信登陆
 function isWeiXin() {
     var ua = window.navigator.userAgent.toLowerCase();
