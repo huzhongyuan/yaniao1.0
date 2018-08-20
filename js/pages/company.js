@@ -24,12 +24,31 @@ window.onload = () => {
 // 点击事件改变
 function changeTitle(that,i) {
     let content = document.getElementById('content');
-    content.innerHTML = list[i].description;
     if("团队风采" == $(that).text()){
-        console.log(888)
-        $("#content img").css("cursor","pointer");
+        /*$("#content img").css("cursor","pointer");
         $("#content img").click(function () {
             window.location.href = "memberList.html";
+        })*/
+        $.ajax({
+            url: baseUrl + '/staff/getStaffById?id=',
+            success: function (res) {
+                let result = res.result;
+                let html = '<div class="teamphoto">\n' ;
+                for (let i=0; i<result.length; i++) {
+                    html += '<img onclick="gotoDetail('+result[i].id+')" src="'+result[i].show_url+'" alt="">';
+                }
+                html += '</div>';
+                content.innerHTML = html;
+            },
+            error: function (res) {
+                console.log(res);
+            }
         })
+    } else {
+        content.innerHTML = list[i].description;
     }
+}
+
+function gotoDetail(id) {
+    window.location.href = 'memberInfo.html?id='+id;
 }

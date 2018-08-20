@@ -115,3 +115,9 @@ color:rgba(0,0,0,1);
 font-family:MicrosoftYaHeiLight;
 color:rgba(0,0,0,1);
 }
+
+.teamphoto img {
+  /*float: left;*/
+  width: 300px;
+    cursor: pointer;
+}
