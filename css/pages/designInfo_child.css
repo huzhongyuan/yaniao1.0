@@ -54,6 +54,7 @@
 .headerdesc {
   display: flex;
   flex-direction: column;
+  width: 600px;
 }
 .headertitile {
   font-size:24px;
@@ -84,6 +85,14 @@
   color:rgba(76,76,76,1);
   line-height:26px;
   margin-bottom: 2rem;
+}
+.styleSpan {
+/*  border: 2px solid gray;
+  border-radius: 5px;*/
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
+  padding-bottom: 2px;
 }
 .headertime {
   margin-top: 73px;

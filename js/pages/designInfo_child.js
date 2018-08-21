@@ -15,8 +15,14 @@ window.onload = () => {
 
     plate.innerHTML = name;
     titlename.innerHTML = name;
-    column.innerHTML = columnName;
-    column.href = columnUrl;
+
+    if (columnName != null) {
+        column.innerHTML = columnName;
+        column.href = columnUrl;
+    } else {
+        column.style.display = 'none';
+        column.nextElementSibling.style.display = 'none';
+    }
     if (typeName != null) {
         type.innerHTML = typeName;
         type.href = 'designInfo.html?id=' + typeId;
@@ -126,7 +132,7 @@ window.onload = () => {
 
             let tags = '风格类型：';
             for (let i = 0; i < res.tags.length; i++) {
-                tags += '<span>'+res.tags[i].name+'</span>';
+                tags += '<span class="styleSpan">'+res.tags[i].name+'</span>';
             }
             headerstyle.innerHTML = tags;
         },

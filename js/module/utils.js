@@ -65,7 +65,7 @@ let indexdes = (res) => {
             //鼠标点击装修类别
             themeimg[i].onclick = () => {
                 console.log(res.result[i].id);
-                sessionStorage.setItem('name', res.result[i].ch_name);
+                sessionStorage.setItem('typeName', res.result[i].ch_name);
                 window.location.href = './designInfo.html?id=' + res.result[i].id;
             }
         }
@@ -169,7 +169,7 @@ let designIndex = (res) => {
         for (let i in res.result) {
             //点击选项卡渲染数据
             themelisttitle[i].onclick = () => {
-                sessionStorage.setItem('name', res.result[i].ch_name);
+                sessionStorage.setItem('typeName', res.result[i].ch_name);
                 window.location.href = './designInfo.html?id=' + res.result[i].id;
             }
         }

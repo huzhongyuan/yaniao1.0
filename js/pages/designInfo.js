@@ -1,6 +1,9 @@
 window.onload = () => {
     let id = getQueryVariable('id');
-    let name = sessionStorage.getItem('name');
+    let typeName = getQueryVariable('typeName');
+
+    let name = sessionStorage.getItem('typeName');
+    // if (name == null) name =  typeName;
     let columnName = sessionStorage.getItem('columnName');
     let columnUrl = sessionStorage.getItem('columnUrl');
     designTitle(id,baseUrl+'/product/getProductListByFloorId?floorId='+id);
