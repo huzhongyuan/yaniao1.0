@@ -33,7 +33,7 @@ window.onload = () => {
                         clo = '#94002C';
                         sessionStorage.setItem('type', res.result[0].name);
                         // 首次加载新闻
-                        ajax(baseUrl + '/articlePush/getArticleList?article_type=' + res.result[0].id, 'indexnews', 1, 4);
+                        ajax(baseUrl + '/articlePush/getArticleList?is_show_home=1&article_type=' + res.result[0].id, 'indexnews', 1, 4);
                     }
                     html += '<span class="titleList" onclick="changTitle(this,' + i + ');" style="color: ' + clo + '">' + res.result[i].name + '</span>';
                 }
@@ -64,7 +64,7 @@ function changTitle(obj, index) {
     sessionStorage.setItem('type', result[index].name);
     obj.style.color = '#94002C';
     // 改变新闻内容
-    ajax(baseUrl + '/articlePush/getArticleList?article_type=' + result[index].id, 'indexnews', 1, 4)
+    ajax(baseUrl + '/articlePush/getArticleList?is_show_home=1&article_type=' + result[index].id, 'indexnews', 1, 4)
 }
 
 // banner跳转事件
